@@ -14,13 +14,15 @@ function submitServerInfo(evt) {
 
   let serverName = serverNameInput.value;
 
-  if (serverName !== '') {
+  if (/^[A-Za-z]+$/.test(serverName)){
     serverId++;
     allServers['server' + serverId] = { serverName };
 
     updateServerTable();
 
     serverNameInput.value = '';
+  } else {
+    alert("Server name can only contain alphabetical letters.")
   }
 }
 
